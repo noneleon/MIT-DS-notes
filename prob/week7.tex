@@ -1,0 +1,132 @@
+\section*{week 7 bayesian inference}
+
+\subsection*{introduction to bayesian inference}
+
+
+\textcolor{blue}{the bayesian inference framework}
+\begin{itemize}
+    \item unknown $\Theta$
+    \begin{itemize}
+        \item treated as a random variable
+        \item prior distribution $p_\Theta$ or $f_\Theta$
+    \end{itemize}
+    \item observation X, observation model $p_{X|\Theta}$ or $f_{X|\Theta}$
+    \item use appropriate version of the bayes rule to find $p_{\Theta|X}(.|X=x)$ or $f_{\Theta|X}(.|X=x)$ 
+\end{itemize}
+
+
+\textcolor{blue}{the output of bayesian inference}
+
+the complete answer is a posterior distribution:pmf $p_{\Theta|X}(.|x)$ or pdf $f_{\Theta|X}(.|x)$
+
+
+\textcolor{blue}{point estimates in bayesian inference}
+
+\textcolor{red}{estimate:}$\hat{\theta}=g(x)$
+
+\textcolor{red}{estimator:}$\hat{\Theta}=g(X)$
+
+\textcolor{blue}{maximum a posterior prob(map)}:
+
+$p_{\Theta|X}(\theta^*|x)=\max_\theta p_{\Theta|X}(\theta|x)$
+
+$f_{\Theta|X}(\theta^*|x)=\max_\theta f_{\Theta|X}(\theta|x)$
+
+\textcolor{blue}{least mean square(lms):}conditional expectation
+$E[\Theta|X=x]$
+
+\textcolor{blue}{discrete,$\Theta$,discrete X}
+
+
+
+\begin{itemize}
+    \item $p_{\Theta|X}(\theta|x)=\frac{p_\Theta(\theta)p_{X|\Theta}(x|\theta)}{p_X(x)}$
+    \item $p_X(x)=\sum_{\theta'}p_{\Theta}(\theta')p_{X|\Theta}(x|\theta')$
+\end{itemize}
+
+\textcolor{blue}{continuous $\Theta$,continuous X}:
+
+\begin{itemize}
+    \item $f_{\Theta|X}(\theta|x)=\frac{f_{\Theta}(\theta)f_{X|\Theta}(x|\theta)}{f_X(x)}$
+    \item $f_X(x)=\int f_\Theta(\theta')f_{X|\Theta}(x|\theta')d\theta'$
+\end{itemize}
+
+\textcolor{blue}{inferrng the unknown bias of a coin and the beta distribution}
+
+\begin{itemize}
+    \item standard example
+    \begin{itemize}
+        \item coin with bais $\Theta$;prior $f_\Theta(.)$
+        \item fix $n,K$=number of heads
+    \end{itemize}
+    \item assume $f_\Theta(.)$ is uniform in $[0,1]$
+    \item $f_{\Theta|K}(\theta|k)=\frac{1.(^n_k)\theta^k(1-\theta)^{n-k}}{p_k(k)}=\frac{1}{d(n,k)}\theta^k(1-\theta)^{n-k}$,beta distribution,with parameters $(k+1,n-k+1)$,$\theta\in[0,1]$
+    \item if prior is beta,$f_\Theta(\theta)=\frac{1}{c}\theta^\alpha(1-\theta)^\beta,\alpha,\beta\ge0$
+    \item $f_{\Theta|K}(\theta|k)=\frac{1}{c}\theta^\alpha(1-\theta)^\beta(^n_k)\theta^k(1-\theta)^{n-k}/p_K(k)=d\theta^{\alpha+k}(1-\theta)^{\beta+n-k}$
+    \item $\hat{\theta}=k/n$
+    \item $\hat{\Theta}=K/n$
+    \item $\int_{0}^{1}\theta^\alpha(1-\theta)^\beta d\theta=\frac{\alpha!\beta!}{(\alpha+\beta+1)!},\alpha,\beta\ge0$
+    \item $E(\Theta|K=k)=\int_{0}^{1}\theta f_{\Theta|K}(\theta|k)d\theta=\frac{k+1}{n+2}\to k/n,as k,n\to large$
+\end{itemize}
+
+
+\subsection*{linear model with normal noise}
+
+$X_i=\sum_{j=1}^ma_{ij}\Theta_j+W_i,W_i,\Theta_j:$ independent,normal
+
+\begin{itemize}
+    \item very common and conveninent model
+    \item bayes' rule: normal posterior
+    \item map and lms estimates coincide - simple formulas(linear in the observation)
+    \item many nice properties
+    \item trajectory estimation example
+\end{itemize}
+
+
+
+$f_X(x)=c.e^{-(\alpha x^2+\beta x+\gamma)},\alpha>0$,nomral with mean $\frac{-\beta}{2\alpha}$ and variance $\frac{1}{2\alpha}$
+
+\textcolor{blue}{the case of multiple observation}
+$\hat{\theta_{map}}=\hat{\theta_{lms}}=E(\Theta|X=x)=\frac{\sum_{i=0}^{n}\frac{x_i}{\sigma_i^2}}{\sum_{i=0}^{n}\frac{1}{\sigma_i^2}}$
+
+\begin{itemize}
+    \item key conclusions:
+    \begin{itemize}
+        \item posterior is normal
+        \item lms and map estimate conincide
+        \item these estimates are 'linear', of the form $\hat{\theta}=a_0+a_1x_1+...+a_nx_n$ 
+    \end{itemize}
+    \item interpretations:
+    \begin{itemize}
+        \item estimate $\hat{\theta}$:weighted average of $x_0$ piror mean and $x_i$ observation
+        \item weights determined by variances
+    \end{itemize}
+\end{itemize}
+
+\textcolor{blue}{the mean squared error}
+$E((\Theta-\hat{\Theta})^2|X=x)=E((\Theta-\hat{\Theta})^2)=\frac{1}{\sum_{i=0}^{n}\frac{1}{\sigma_i^2}}$
+
+
+
+
+
+
+\subsection*{least mean square estimation}
+
+
+\textcolor{blue}{lms estimation in the absence of observation}
+
+\begin{itemize}
+    \item minimize mean squared error,$E((\Theta-\hat{\theta})^2):\hat{\theta}=E(\Theta)$
+    \item optimal mean squared error:$E((\Theta-E(\Theta))^2)=var(\Theta)$
+\end{itemize}
+
+
+\textcolor{blue}{properties of the estimation error in lms estimation}
+
+\begin{itemize}
+    \item estimator $\hat{\Theta}=E(\Theta|X)$
+    \item error $\overset{\sim}{\Theta}=\hat{\Theta}-\Theta$
+    \item $E(\overset{\sim}{\Theta}|X=x)=0$
+    \item $cov(\overset{\sim}{\Theta},\hat{\Theta})=0$
+\end{itemize}

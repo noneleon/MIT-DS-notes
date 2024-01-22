@@ -1,0 +1,72 @@
+\section*{week3 counting}
+
+
+\textcolor{blue}{discrete uniform law}
+
+\begin{itemize}
+    \item assume $\Omega$ consist of $n$ equally likely elements
+    \item assume A consists of $k$ elements 
+\end{itemize}
+
+then:$P(A)=\frac{\# A}{\# \Omega}=\frac{k}{n}$
+
+
+
+\textcolor{blue}{combinations}
+
+def:$(^n_k)$ numbers of k-elements subsets of a given n-elements sets = $\frac{n!}{k!(n-k)!}$
+
+two ways of constructing an ordered sequence of k distinct items:
+
+\begin{itemize}
+    \item choose the k items one at a time
+    \item choose k items,then order them
+\end{itemize}
+
+\textcolor{red}{useful formula}
+
+$(^n_k)=\frac{n!}{k!(n-k)!},(^n_n)=1,(^n_0)=1,0!=1,\sum_{k=0}^k(^n_k)=(^n_0)+(^n_1)+...+(^n_n)$=\# all subsets = $2^n$
+
+\textcolor{blue}{binomial coefficient $(^n_k)->$ binomail probs}
+
+\begin{itemize}
+    \item $n\geq 1$ independent coin tosses;$P(H)=p$
+    \item $P(HTTHHH)=p(1-p)(1-p)ppp=p^4(1-p)^2$
+    \item $P(\text{particular sequence})=p^{\text{\# heads}}(1-p)^{\text{\# tails}}$
+    \item $P(particular k-head sequence)=p^k(1-p)^{n-k}$
+    \item $P(heads)=(^n_k)p^k(1-p)^{n-k}=p^k(1-p)^{n-k}.(\text{\# k-head sequences})$
+\end{itemize}
+
+\textcolor{blue}{partitions}
+
+\begin{itemize}
+    \item $n\geq 1$ distinct items,$r\geq 1$ persons given $n_i$ items to persion $i$
+    \begin{itemize}
+        \item here $n_1,...,n_r$ are given nonnegative integers
+        \item with $n_1+...+n_r=n$
+    \end{itemize} 
+    \item ordering n items:$n!$
+    \begin{itemize}
+        \item deal $n_i$ to each person i, and then order
+    \end{itemize}
+\end{itemize}
+
+$cn_1!n_2!...n_r!=n!$ solve this formula we get number of partitions $\frac{n!}{n_1!n_2!...n_r!}$(multinomial coefficient)
+
+\textcolor{blue}{the multinomial probs}
+
+\begin{itemize}
+    \item balls of different colors:$i=1,...,r$
+    \item prob of picking a ball of color $i$ is $p_i$
+    \item draw n balls, independently
+    \item given nonnegative numbers $n_i$, with $n_1+n_r+...+n_r=n$
+    \item find P($n_1$ balls of color 1,$n_2$ colors of color 2,..., $n_r$ balls of color r)
+    \item special case $r=2$;colors: head and tails
+\end{itemize}
+
+$P(\text{particular sequence of type}(n_1,n_2,...,n_r))=p_1^{n_1}p_2^{n_2}...p_r^{n_r}$
+
+sequence of type $(n_1,n_2,...,n_r)->$ partition of \{1,2,...,n\} into subsets of sizes $n_1,n_2,...,n_r$
+
+$P(\text{get type}(n_1,n_2,...,n_r))=\frac{n!}{n_1!n_2!...n_r!}p_1^{n_1}p_2^{n_2}...p_r^{n_r}$
+

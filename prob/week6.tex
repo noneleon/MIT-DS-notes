@@ -1,0 +1,169 @@
+\section*{week 6 further topics on random variables}
+
+\subsection*{derived distribution}
+
+\textcolor{blue}{a linear function of a discrete r.v.}
+
+$Y=a X+b:p_Y(y)=p_X(\frac{y-b}{a})$
+
+
+\textcolor{blue}{a linear function of a continuous r.v.}
+
+$Y=a X+b:f_Y(y)=\frac{1}{|a|}f_X(\frac{y-b}{a})$
+
+\textcolor{blue}{a linear function of a continuous r.v. is normal}
+
+if $X\sim N(\mu,\sigma^2),\text{then} a X+b \sim N(a\mu+b,a^2\sigma^2)$
+
+
+\textcolor{blue}{a general function g(X) of a continuous r.v.}
+
+two-step procedure:
+
+\begin{itemize}
+    \item find the cdf of Y:$F_Y(y)=P(Y\le y)=P(g(Y)\le y)$
+    \item differentiate:$f_Y(y)=\frac{d F_Y(y)}{dy}$
+\end{itemize}
+
+\textcolor{blue}{a general formula for the pdf of $Y=g(X)$ when g is monotonic}
+
+$f_Y(y)=f_X(h(y))|\frac{dh(y)}{dy}|$
+
+
+
+
+
+
+\subsection*{sums of independent r.v.'s, covariance and correlation}
+
+\textcolor{blue}{the distribution of X+Y:the discrete case}
+
+$Z=X+Y;$X,Y independent, discrete $g(X,Y)$ known pmfs
+
+$p_Z(z)=\sum_xp_X(x)p_Y(z-x)$
+
+if the continuous case:
+$f_Z(z)=\int_{-\infty}^\infty f_X(x)f_Y(z-x)dx$
+
+
+\textcolor{blue}{the sum of finitely many independent normals is normal}
+
+\textcolor{red}{covariance}
+$cov(X,Y)=E((X-E(X))(Y-E(Y)))$
+
+independent $\to$ $cov(X,Y)=0$
+
+\textcolor{blue}{covariance properties}
+
+$cov(X,X)=var(X)=E(X^2)-(E(X))^2$
+
+$cov(a X+b,Y)=a cov(X,Y)$
+
+$cov(X,Y+Z)=cov(X,Y)+cov(X,Z)$
+
+$cov(X,Y)=E(X Y)-E(X)E(Y)$
+
+
+\textcolor{blue}{the variance of a sum of random variables}
+
+\begin{itemize}
+    \item $var(X_1+X_2)=var(X_1)+var(X_2)+2cov(X_1,X_2)$
+    \item $var(\sum_i ^n X_i)=\sum_i^n var(X_i)+\sum_{(i,j):i\neq j}cov(X_i,X_j)$
+\end{itemize}
+
+\textcolor{red}{the correlation coefficient}
+
+\begin{itemize}
+    \item dimensionless version of covariance:$\rho(X,Y)=E(\frac{(X-E(X))}{\sigma_X}.\frac{Y-E(Y)}{\sigma_Y})$
+    \item slope $-1\le \rho \le 1$ 
+    \item meansure of the degree of 'association' between X and Y
+    \item independent $\to \rho =0$, uncorrelated,converse is not true
+    \item $\rho(X,X)=1$
+    \item $|\rho|=1,<=>(X-E(X))=c(Y-E(Y))$ (linearly related)
+    \item $cov(a X+b,Y)=a cov(X,Y)\to \rho(a X+b,Y)=sign(a)\rho(X,Y)$
+\end{itemize}
+
+
+\subsection*{conditional expectation and variance revisited, sum of a random number of independent r.v.'s}
+
+
+\textcolor{blue}{conditional expectation as a random variable}
+
+\begin{itemize}
+    \item function h,$h(x)=x^2$
+    \item random variable X, what is h(X)?
+    \item h(X) is the r.v. that takes the value $x^2$,if X happens to take the value x
+    \item $g(y)=E(X|Y=y)=\sum_xp_{X|Y}(x,y)$ (integral in continous case)
+    \item $g(Y)$ is the r.v. that takes the value $E(X|Y=y)$, if Y happens to take the value y
+    \item definition:$E(X|Y)=g(Y)$
+    \item remarkes:
+    \begin{itemize}
+        \item it is a function of Y
+        \item it is a random variable
+        \item has a distribution, mean , variance,etc
+    \end{itemize}
+\end{itemize}
+
+
+
+\textcolor{red}{the mean of $E(X|Y)$}:the law of iterated expectation
+$E(E(X|Y))=E(X)$
+
+
+\textcolor{blue}{forecast revisions}
+
+\begin{itemize}
+    \item suppose forecasts are made by calculating expected value, given any available information
+    \item X: february sales
+    \item forecast in the beginning of the year
+    \item end of january: will get new information,value y of Y,revisited$E(X|Y=y)$
+    \item law of iterated expectation E(revised forecast)=E(X)= orginal forecast
+\end{itemize}
+
+
+$var(X)=E((X-E(X))^2)\to var(X|Y)=E((X-E(X|Y=y))^2|Y=y)$
+
+$var(X|Y)$ is r.v that takes the value var(X|Y=y),when Y=y 
+
+\textcolor{blue}{law of total variance}
+$var(X)=E(var(X|Y))+var(E(X|Y))$
+
+
+\textcolor{green}{derivate of the law of total variance}
+
+\textcolor{green}{$var(X|Y=y)=E(X^2|Y=y)-(E(X|Y=y))^2$} for all y 
+
+\textcolor{green}{$var(X|Y)=E(X^2|Y)-(E(X|Y))^2$}
+
+\textcolor{green}{$E(var(X|Y))=E(X^2)-E((E(X|Y))^2)$}
+
+\textcolor{green}{$var(E(X|Y))=E((E(X|Y))^2)-(E(E(X|Y)))^2$}
+
+
+\textcolor{blue}{section means and variance}
+
+var(X)= (average variable within sections)+(variable between sections)
+
+\textcolor{blue}{sum of a random number of independent r.v.'s}
+
+\begin{itemize}
+    \item N: number of stores visited
+    \item $X_i$: money spent in store i,$X_i$ independent,identically distributed,independent of N
+    \item let $Y=X_1+...+X_N$ 
+    \item $E(Y|N=n)=n E(X)$
+    \item total expectation theorem:$E(Y)=\sum_n p_N(n)E(Y|N=n)=E(N)E(X)$
+    \item law of iterated expectation:$E(Y)=E(E(Y|N))=E(N)E(X)$
+\end{itemize}
+
+\textcolor{blue}{variance of sum of a random number of independentr.v.'s}
+
+$Y=X_1+...+X_N$
+
+\begin{itemize}
+    \item $var(Y)=E(var(Y|N))+var(E(Y|N))$
+    \item $var(Y)=E(N)var(X)+(E(X))^2var(N)$
+    \item $E(Y|N)=n E(X)$
+    \item $var(Y|N)=Nvar(X)$
+    \item $E(var(Y|N))=E(N)var(X)$
+\end{itemize}
+

@@ -1,0 +1,252 @@
+\section*{week 4 discrete random variables}
+
+\subsection*{prob mass functions and expectations}
+
+\textcolor{blue}{pmf of a discrete r.v X}
+
+\begin{itemize}
+    \item it is the prob law or prob distribution of X
+    \item if we fix some x, then "$X=x$" is an event
+\end{itemize}
+
+$p_X(x)=P(X=x)=P(\{\omega \in \Omega s.t. X(\omega)=x\})$
+
+properties:$p_X(x)\geq 0,\sum_xp_X(x)=1$
+
+\textcolor{blue}{discrete uniform random variable;parameters a,b}
+
+\begin{itemize}
+    \item parameters a,b,$a\leq b$
+    \item experiment:pick one of $a,a+1,...,b$ at random;all equally likely
+    \item smaple space:$\{a,a+1,...,b\}$ $b-a+1$ possible values
+    \item random varible X:$X(\omega)=\omega$
+    \item model of:compete ingnorance
+    \item special case:$a=b$
+\end{itemize}
+
+\textcolor{blue}{binomial random variable;parameters:positive integer $n,n \in [0, 1]$}
+
+\begin{itemize}
+    \item experiment:n independent tosses of a coin with P(heads)=p
+    \item smaple space: set of sequence o f H and T, of length n
+    \item random variable X: number of heads observed
+    \item model of:number of successes in a given number of independent trails
+    \item $p_X(k)=(^n_k)p^k(1-p)^{n-k}$, for $k=0,1,...,n$ 
+\end{itemize}
+
+
+\textcolor{blue}{geometric random varivable;parameters $p:0<p\leq 1$}
+
+\begin{itemize}
+    \item experiment:infinitely many independent tosses of a coin,P(heads)=p
+    \item sample sapce: set of infinite sequences of H and T
+    \item random X: number of tosses unitl the first heads
+    \item model of: waiting times;number of trails unitl a successes
+    \item $p_X(X=k)=(1-p)^kp$
+\end{itemize}
+
+\textcolor{blue}{expectation/mean of a random variable}
+
+\begin{itemize}
+    \item motivation:play a game 1000 times, random gain at each play describe by:
+    \item average gain
+    \item defintion:$E(X)=\sum_xp_X(x)$
+    \item interpretation: average in large number of independent repetitions of the experiment
+    \item \textcolor{red}{caution}: if we have an infinite sum, it needs to be well defined, we assume $\sum_x |x|p_X(x)\le \infty$
+\end{itemize}
+
+
+\begin{itemize}
+    \item bernoulli:E(X)=p
+    \item uniform:E(x)=$\frac{n}{2}=\frac{a+b}{2}$
+    \item polulation average:E(X)=$\frac{1}{n}\sum_ix_i$
+\end{itemize}
+
+\textcolor{blue}{elmentary properties of expectations}
+
+\begin{itemize}
+    \item if $X\geq 0$, then $E(X)\geq 0$
+    \item if $a\leq X \leq b$, then $a\leq E(X) \leq b$
+    \item if $c$ is a constant,$E(c)=c$
+\end{itemize}
+
+\textcolor{blue}{the expected balue rule, for calculating $E(g(X))$}
+
+\begin{itemize}
+    \item let X be a r.v. and let $Y=g(X)$
+    \item averaging over $y:E(Y)=\sum_y yp_Y(y)$
+    \item averaging obver $x:E(g(X))=\sum_xg(x)P_X(x)$
+    \item \textcolor{red}{caution}:in general,$E(g(X))\neq g(E(X))$
+\end{itemize}
+
+
+\textcolor{red}{linearity of expectation:}
+$E(aX+b)=aE(X)+b$
+
+
+
+
+
+\subsection*{variance, conditioning on an event,multiple r.v.'s}
+
+\textcolor{blue}{variance-- a measure of the spread of a pmf}
+
+\begin{itemize}
+    \item random variable X, with mena $\mu = E(X)$
+    \item distance from the mean:$X-\mu$
+    \item average distance from the mean:$E(X-\mu)=\mu - \mu =0$
+    \item def:variance:$\text{var}(X)=E((X-\mu)^2)$
+    \item calculation,using the expected value rule, $E(g(X)=\sum_xg(x)p_X(x))=\sum_x(x-\mu)^2p_X(x)$
+    \item standard deviation:$\sigma_X=\sqrt{\text{var}(X)}$
+\end{itemize}
+
+\textcolor{blue}{properties of the variance}
+
+\begin{itemize}
+    \item notation:$\mu=E(X)$
+    \item $\text{var}(aX+b)=a^2\text{var}(X)$
+    \item a useful formula:$\text{var}(X)=E(X^2)-(E(X))^2$
+\end{itemize}
+
+
+\textcolor{red}{variance of the bernoulli}:$p(1-p)$
+
+\textcolor{blue}{variance of the uniform}:$\frac{1}{12}n(n+2)=\frac{1}{12}(b-a)(b-a+2)$
+
+
+\textcolor{blue}{conditioning pmf and expectation, given an event}
+
+conditioning on an event A $=>$ use condional probs
+
+$p_X(x)=P(X=x)$    $\rightarrow$    $p_{X|A}(x)=P(X=x|A)$
+
+$\sum_xp_X(x)=1\rightarrow \sum_xp_{X|A}(x)=1$
+
+$E(X)=\sum_xxp_X(x)\rightarrow E(X|A)=\sum_xp_{X|A}(x)$
+
+$E(g(X))=\sum_xg(x)p_X(x)\rightarrow E(g(X)|A)=\sum_xg(x)p_{X|A}(x)$
+
+
+\textcolor{blue}{total expectation theorem}
+
+$p_X(x)=P(A_1)p_{X|A_1}(x)+...+P(A_n)p_{X|A_n}(x)$
+
+$E(x)=P(A_1)E(X|A_1)+...+P(A_n)E(X|A_n)$
+
+\textcolor{blue}{conditioning a geometric random varivable}
+
+$X$: number of independent coin tosses until first head:P(head)=p
+
+$p_X(X=k)=(1-p)^{k-1}p,k=1,2,3,....$
+
+conditioned on $X\ge 1,X-1$ is geometric with parameters p 
+
+memeoryless: number of remaining coin tosses, conditioned on trails in the first tosses, is geometric,with parameters p 
+
+
+\textcolor{red}{the mean of the geometric}:$\mu=\frac{1}{p}$
+
+\textcolor{blue}{multiple random variables and joint pmfs}
+
+joint pmf:$p_{X,Y}=P(X=x,Y=y)$
+
+properties:
+\begin{itemize}
+    \item $\sum_x\sum_y p_{X,Y}(x,y)=1$
+    \item $p_X=\sum_y p_{X,Y}(x,y)$
+    \item $p_Y=\sum_x p_{X,Y}(x,y)$
+\end{itemize}
+
+
+\textcolor{blue}{more than two random variables}
+
+$p_{X,Y,Z}=P(X=x,Y=y,Z=z)$
+\begin{itemize}
+    \item $\sum_x \sum_y\sum_z p_{X,Y,Z}(x,y,z)=1$
+    \item $p_X(x)=\sum_y\sum_z p_{X,Y,Z}(x,y,z)$
+    \item $p_{X,Y}(x,y)=\sum_zp_{X,Y,Z}(x,y,z)$
+\end{itemize}
+
+\textcolor{blue}{functions of multiple random variables}
+
+\begin{itemize}
+    \item expected value rule:$E(g(X,Y))=\sum_x\sum_y g(x,y)p_{X,Y}(x,y)$
+    \item linearity of expectations:$E(aX+b)=aE(X)+b,E(X+Y)=E(X)+E(Y)$
+\end{itemize}
+
+
+\textcolor{red}{the mean of the binomial}
+$\mu=np$
+
+
+
+
+
+
+
+\subsection*{conditioning on a random variable; independent of r.v.'s}
+
+
+\textcolor{blue}{conditional pmfs}
+
+$p_{X|Y}(x|y)=\frac{p_{X,Y}(x,y)}{p_Y(y)}$ defined for $y$ such that $p_Y(y)\ge 0$
+
+\textcolor{blue}{conditional pmfs involving more than two random variables}
+
+\begin{itemize}
+    \item self-explanatory notation:$p_{X|Y,Z}(x|y,z)=\frac{p_{X,Y,Z}(x,y,z)}{p_{Y,Z}(y,z)}$
+    \item $p_{X,Y|Z}(x,y|z)=P(X=x,Y=y|Z=z)$
+    \item multiplication rule: $P(ABC)=P(A)P(B|A)P(C|AB)\rightarrow p_{X,Y,Z}(x,y,z)=p_Xp_{Y|X}(y|x)p_{Z|X,Y}(z|x,y)$  
+\end{itemize}
+
+\textcolor{blue}{conditional expectation}
+
+$E(X|A)=\sum_x x p_{X|X|A}(x|A)$
+
+$E(g(X)|A)=\sum_x g(x) p_{X|A}(x|A)$
+
+
+\textcolor{blue}{total prob and expectation theorem}
+
+$E(X)=\sum_y p_Y(y)E(X|Y=y)$
+
+\textcolor{blue}{independence}
+
+X,Y,Z are independent if $p_{X,Y,Z}(x,y,z)=p_X(x)p_Y(y)p_Z(z)$  for all $x,y,z$
+
+if X, Y is independent:$E(XY)=E(X)E(Y),\text{var}(X+Y)=\text{var}(X)+\text{var}(Y)$
+
+$g(X), h(Y)$ are also independent:$E(g(X)h(Y))=E(g(X))E(h(Y))$
+
+
+\textcolor{red}{variance of the binomial}:$\sigma^2 = npq=np(1-p)$
+
+
+\textcolor{blue}{the hat problem}
+
+\begin{itemize}
+    \item n people throw their hat in a box and then pick one at random
+    \begin{itemize}
+        \item all permutations equally likely
+        \item equivalent to picking one hat at a time
+    \end{itemize}
+    \item X: number of people who get their own hat
+    \begin{itemize}
+        \item  find E(X)=1
+        \item $X_i$=1, if selects own hat,0, otherwise
+        \item $X=X_1+...+X_n$
+    \end{itemize}
+    \item $E(X_i)=E(X_1)=\frac{1}{n}$
+\end{itemize}
+
+\textcolor{blue}{the variance in the hat problem}
+
+\begin{itemize}
+    \item X: number of people who get their own hat
+    \item find var(X)
+    \item var(X)=$E(X^2)-(E(X))^2$
+    \item $E(X_i^2)=E(X_1^2)=E(X_1)=1/n,X^2=\sum_i X_i^2+\sum_{i,j:i\neq j}X_i X_j,E(X^2)=n\times \frac{1}{n} +n(n-1)\frac{1}{n}\frac{1}{n-1}$
+    \item for $i \neq j:E(X_i X_j)=E(X_1,X_2)=P(X_1 X_2=1)=P(X_1=1,X_2=1)=P(X_1=1)P(X_2|X_1=1)=\frac{1}{n}\frac{1}{n-1}$
+\end{itemize}
+
+

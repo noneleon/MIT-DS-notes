@@ -1,0 +1,40 @@
+\section*{week 2 conditioning and independence}
+
+\subsection*{conditioning and bayes' rule}
+
+\textcolor{blue}{conditional prob:}
+$P(A|B)=$prob of A, given that B occured
+
+$P(A|B)=\frac{P(AB)}{P(B)}$ defined only when $P(B)\ge 0$
+
+\textcolor{blue}{the multiplication rule}
+
+$P(AB)=P(A)P(B|A)$
+
+$P(\cap_i A_i)=P(A_1)\prod_{i=2}^n P(A_i|\cap_{i-1} A_{i})$
+
+
+\textcolor{red}{total prob theorem}
+$P(B)=\sum_i P(A_i)P(B|A_i)$
+
+\textcolor{red}{bayes' rule}
+$P(A_i|B)=\frac{P(A_i)P(B|A_i)}{\sum_j P(A_j)P(B|A_j)}$
+
+
+\subsection*{independent}
+
+\textcolor{blue}{independence of two events}
+$P(AB)=P(A)P(B)$
+
+\textcolor{blue}{conditional independence}
+
+conditonal independence, given C, is defined as independence under the prob law $P(.|C)$
+
+$P(AB|C)=P(A|C)P(B|C)$
+
+\textcolor{red}{reliability}
+
+\begin{itemize}
+    \item chuan $p(chuan)=\prod_i p_i$
+    \item bing  $p(bing)=1-\prod_i(1-p_i)$
+\end{itemize}

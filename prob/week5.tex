@@ -1,0 +1,226 @@
+\section*{week 5 contiuous random variables}
+
+\subsection*{prob density functions}
+
+\textcolor{blue}{prob density functions-pdfs}
+def: a random variable is continuous if it can be described by a pdf
+
+$P(a\leq X \leq a+\delta)\simeq f_X(a).\delta$
+
+$P(a\leq X \leq b)=\int_a^b f_X(x)dx$
+
+$f_X(x)\geq 0$
+
+$\int_{-\infty}^\infty f_X(x)dx=1$
+
+
+\textcolor{blue}{expectation/mean of a continuous random variable}
+
+interpretation: average in large number of independent repetitions of the experiment
+
+$E(X)=\int_{-\infty}^\infty xf_X(x)dx$
+
+\textcolor{blue}{properties of expectation}
+\begin{itemize}
+    \item if $X \geq 0,$then $E(X)\geq 0$
+    \item if $a\leq X \leq b$, then $a\leq E(X)\leq b$
+    \item expected value rule:$E(g(X))=\int_{-\infty}^\infty g(x)f_X(x)dx$
+    \item linearity:$E(a X+b)=a E(X)+b$ 
+\end{itemize}
+
+
+
+\textcolor{blue}{variance and its properties}
+
+\begin{itemize}
+    \item def: var(X)=$E((X-\mu)^2)$
+    \item caculation using the expected value rule:
+    \item var(X)=$\int_{-\infty}^{\infty}(x-\mu)^2dx$
+    \item standard deviation:$\sigma_X=\sqrt{\text{var}(X)}$
+    \item var($a X+b$)=$a^2$var($X$)
+    \item useful fromula:var(X)=$E(X^2)-(E(X))^2$
+\end{itemize}
+
+uniform(a,b):
+\begin{itemize}
+    \item $\mu=\frac{a+b}{2}$
+    \item $\sigma^2=\frac{(b-a)^2}{12}$
+\end{itemize}
+
+\textcolor{blue}{exponential random variable,parameter $\lambda> 0$}
+
+$f_X(x)=\left\{ \begin{array}[pos]{l}
+    \lambda e^{-\lambda x},x\geq 0\\
+    0,x <0
+\end{array}\right.$
+
+\begin{itemize}
+    \item $E(X)=\frac{1}{\lambda}$
+    \item $E(X^2)=\frac{2}{\lambda^2}$
+    \item var(X) = $\frac{1}{\lambda^2}$
+\end{itemize}
+
+
+\textcolor{blue}{cumulative distribution function(cdf)}
+
+def:$F_X(x)=P(X\le x)$
+
+continuous random variable $F_X(x)=\int_{-\infty}^x f_X(t)dt$
+
+$\frac{d F_X(x)}{dx}(x)=f_X(x)$
+
+
+discrete random variables:$F_X(x)=P(X\le x) = \sum _{k\leq x}p_X(k)$
+
+
+\textcolor{blue}{general cdf properties}
+
+\begin{itemize}
+    \item non-decreasing, if $y\ge x, F_X(y)\leq F_X(x)$
+    \item $F_X(x)$ tends to 1, as $x \to \infty$
+    \item $F_X(x)$ tends to 0, as $x \to -\infty$
+\end{itemize}
+
+
+\textcolor{blue}{normal(gaussian) random variable}
+
+\begin{itemize}
+    \item important in the theory of prob - central limit theorem
+    \item prevalent in applications
+    \begin{itemize}
+        \item conveninent analytical properties
+        \item model fo noise consisting of many, small independent noise terms
+    \end{itemize}
+\end{itemize}
+
+
+\textcolor{blue}{standard normal random variables}
+
+\begin{itemize}
+    \item standard normal $N(0,1):f_X(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$
+    \item $\int_{-\infty}^\infty e^{-x^2/2}=\sqrt{2\pi}$ 
+    \item $\mu=0$
+    \item $\sigma=1$
+\end{itemize}
+
+
+\textcolor{blue}{general normal random variable}
+\begin{itemize}
+    \item general normal $N(\mu,\sigma):f_X(x)=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$
+    \item $E(X)=\mu$
+    \item var(X)=$\sigma^2$ 
+\end{itemize}
+
+
+\textcolor{blue}{linear functions of a normal random variable}
+
+\begin{itemize}
+    \item let $Y=a X +b, X\sim N(\mu,\sigma^2),E(X)=a \mu +b,\text{var}(X)=a^2\sigma^2$
+    \item fact $Y\sim N(a\mu+b,a^2\sigma^2)$
+\end{itemize}
+
+
+\textcolor{blue}{standardizing a random variable}
+
+\begin{itemize}
+    \item let X have mean $\mu$ and variance $\sigma^2 >0$
+    \item  let $Y=\frac{X-\mu}{\sigma}$
+    \item if also X is a normal, then $Y\sim N(0,1)$
+\end{itemize}
+
+\subsection*{conditioning on an event; multiple r.v.'s}
+
+\textcolor{blue}{conditional pdfs,given an event}
+
+for $P(A)>0$
+\begin{itemize}
+    \item $f_X(x)\delta \simeq P(x\le X \le x+\delta)$
+    \item $f_{X|A}(x)\delta \simeq P(x\le X \leq x+\delta |A)$
+    \item $P(X\in B)=\int_B f_X(x)dx$
+    \item $P(X\in B|A)=\int_B f_{X|A}(x|A)dx$
+    \item $\int f_{X|A}(x|A)dx=1$
+\end{itemize}
+
+
+\textcolor{red}{conditional pdf of X, given that $X\in A$}
+
+$f_{X|X \in A}(x)=$ $\left\{\begin{array}[pos]{l}
+    0, x \notin A,\\
+    \frac{f_X}{P(A)}, x \in A
+\end{array} \right.$
+
+
+\textcolor{blue}{conditional expectation of X, given an event}
+
+\begin{itemize}
+    \item $E(X|A)=\int xf_{X|A}(x)dx$
+    \item $E(g(X)|A)=\int g(x)f_{X|A}dx$
+\end{itemize}
+
+
+\textcolor{blue}{joint continous r.v.'s and joint pdfs}
+
+\begin{itemize}
+    \item def: two random variable are jointly continous if they can be described by a joint pdf
+    \item $f_{X,Y}(x,y)\ge 0$
+    \item $P((X,Y)\in B)=\int \int _{(x,y)\in B}f_{X,Y}(x,y)dxdy$
+    \item $\int_{-\infty}^\infty\int_{-\infty}^\infty f_{X,Y}(x,y)=1$
+\end{itemize}
+
+\textcolor{blue}{on joint pdfs}
+
+$P(a\le X \le b, c\le Y \le d)=\int_c^d \int_a^b f_{X,Y}(x,y)dxdy$
+
+$P(a\le X \le a+\delta,c\le Y \le c+\delta)\simeq f_{X,Y}(a,c)\delta^2$
+
+$f_{X,Y}(x,y):$ prob per unit area
+
+aera(B)=0,$\rightarrow P((X,Y)\in B)=0$
+
+\textcolor{blue}{from the joint to the marginals}
+
+$f_X(x)=\int f_{X,Y}(x,y)dy$
+
+$f_Y(y)=\int f_{X,Y}(x,y)dx$
+
+\textcolor{blue}{uniform joint pdf on a set S}
+
+$f_{X,Y}(x,y)=\left\{ \begin{array}[pos]{l}
+    \frac{1}{\text{area of} S}, (x,y) \in S
+    0,\text{otherwise}
+\end{array}\right.$
+
+\textcolor{red}{the joint cdf}
+
+$f_{X,Y}(x,y)=\frac{\partial ^2 F_{X,Y}(x,y)}{\partial x \partial y}$
+
+\subsubsection*{conditioning on a random variable;independence;bayes rules}
+
+\textcolor{blue}{conditional pdfs, given another r.v.}
+$f_{X|Y}(x|y)=\frac{f_{X,Y}(x,y)}{(f_Y(y))},f_Y(y)>0$
+
+def:$P(X\in A|Y=y)=\int _A f_{X|Y}(x|y)dx$
+
+
+\textcolor{blue}{comments on conditional pdfs}
+
+\begin{itemize}
+    \item $f_{X|Y}(x|y)\ge 0$
+    \item think of value of Y as fixed at some y shape of $f_{X|Y}(.|y):$ slice of the joint
+    \item $\int_{-\infty}^\infty \int_{-\infty}^\infty f_{X|Y}(x|y)dx=\frac{\int_{-\infty}^\infty f_{X,Y}(x,y)dx}{f_Y(y)}=1$ 
+    \item multiplication rule:$f_{X,Y}(x,y)=f_Y(y)f_{X|Y}(x|y)=f_X(x)f_{Y|X}(y|x)$
+\end{itemize}
+
+\textcolor{blue}{total prob and expectation theorems}
+
+\begin{itemize}
+    \item $f_X(x)=\int_{-\infty}^\infty f_Y(y)f_{X|Y}(x|y)dy$
+    \item $E(X|Y=y)=\int_{-\infty}^\infty x f_{X|Y}(x|y)dx$
+    \item $E(X)=\int_{-\infty}^\infty f_Y(y)E(X|Y=y)dy$
+    \item expected value rule: $E(g(X)|Y=y)=\int_{-\infty}^\infty g(x)f_{X|Y}(x|y)dx$
+    \item independence:$f_{X,Y}(x,y)=f_X(x)f_Y(y),\text{for all} x,y$
+\end{itemize}
+
+
+
+

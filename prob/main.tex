@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{lipsum} % 用于生成样例文本
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{
+    a4paper, 
+    margin=0.22in, 
+}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{circuitikz}
+
+\usepackage{parskip}
+\setlength{\parskip}{0.3pt}
+\usepackage{titlesec}
+\titleformat*{\section}{\fontsize{10}{0}\selectfont\bfseries}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{multirow}
+%\usepackage{fancyhdr}
+%\fancyhfoffset[L]{\headheight} % Set the header height to adapt automatically
+\usepackage{lastpage}
+\usepackage{lipsum} % for generating filler text
+\usepackage{multicol} % 多栏排版
+\setlength{\columnsep}{0.4cm} % 设置栏之间的间距
+\usepackage{xcolor}
+
+% 定义深蓝色
+\definecolor{deepblue}{RGB}{0,0,128}
+%设置页眉页脚
+%\pagestyle{fancy}
+%\fancyhf{} % Clear all header and footer fields
+%\lhead{\textcolor{deepblue}{MIT Finance by None Leon}} % Set your document title here
+%\cfoot{ \thepage\ / \pageref{LastPage}}
+
+\begin{document}
+%\thispagestyle{fancy} % Use this line if your first page doesn't show the fancy header and footer
+\begin{multicols}{2}
+    \input{week1}
+    \input{week2}
+    \input{week3}
+    \input{week4}
+    \input{week5}
+    \input{week6}
+    \input{week7}
+    \input{week8}
+    \input{week9}
+    \input{week10}
+\end{multicols}
+\end{document}

@@ -1,0 +1,64 @@
+\section*{week 1 probs models and axioms}
+
+\textcolor{blue}{sample space}
+
+\begin{itemize}
+    \item list(set) of possible outcomes,$\Omega$
+    \item list must be:
+    \begin{itemize}
+        \item mutually exclusive
+        \item collectively exhaustive
+        \item at the right granularity
+    \end{itemize}
+\end{itemize}
+
+
+\textcolor{blue}{prob axioms}
+
+\begin{itemize}
+    \item event:a subset of the smaple space-prob is assigned to event
+    \item axioms:
+    \begin{itemize}
+        \item nonnegative:$P(A)\geq 0$
+        \item normalization:$P(\Omega)=1$
+        \item (finte) additivity:if $AB=\emptyset,\text{then} P(A\cup B)=P(A+B)$
+    \end{itemize}
+\end{itemize}
+
+\textcolor{blue}{some consequences of the axioms}
+
+if $A\subset B$,then $P(B)\geq P(A)$
+
+$P(A\cup B)=P(A)+P(B)-P(AB)$
+
+$P(AB)\leq P(A)+P(B)$
+
+$P(A\cup B \cup C)=P(A)+P(A^c B)+P(A^c B^c C)$
+
+
+\textcolor{blue}{discrete uniform law}
+
+\begin{itemize}
+    \item assume $\Omega$ consists of n equally likely elements
+    \item assume A consist of k elements then $P(A)=\frac{k}{n}$
+\end{itemize}
+
+
+\textcolor{blue}{uniform prob law:prob=area}
+
+
+\textcolor{blue}{countable additivity axiom} if $A_i$ is infinite sequence of disjoint events,then
+
+$P(\cup _i A_i)=\sum_i P(A_i)$
+
+\textcolor{blue}{de morgan's law}
+
+$(\cup_n S_n)^c=\cap _n S_n^c,(\cap_n S_n)^c=\cup _n S_n^c$
+
+
+\textcolor{red}{the geometric series} $\sum_{i=0}^\infty \alpha_i=\frac{1}{1-\alpha},|\alpha|\le 1$
+
+\textcolor{red}{order of sum in series with multiple indices}
+
+$\sum_{i\geq 1,j\geq 1}a_{ij}=\sum _{i=1}^\infty (\sum_{j=1}^\infty a_{ij})=\sum_{j=1}^\infty (\sum_{i=1}^\infty a_{ij})$
+
