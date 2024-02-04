@@ -1,0 +1,111 @@
+\section*{week 8 limit theorems and classical statistics}
+
+\subsection*{inequality,convergence, and the weak law of large numbers}
+
+\textcolor{blue}{inequality}
+
+\begin{itemize}
+    \item bound $P(X\ge a)$ based on limited information about a distribution
+    \item markov inequality based on mean
+    \item chebyshev inequality based on the mean and variance 
+\end{itemize}
+
+
+\textcolor{blue}{wlln}:$X,X_1,...,X_n,i.i.d$ $\frac{X_1+...+X_n}{n}\to E(X)$
+
+- application to polling
+
+precise defn. of convergence
+- convergence 'in prob'
+
+
+\textcolor{blue}{the markov inequality}
+
+\begin{itemize}
+    \item use a bit of information about a distribution to learn sth about probs of 'extreme events'
+    \item  if $X\ge 0, E(X)$ is small, then X is unlikely to be very large
+\end{itemize}
+
+def: if $X\geq 0$ and $a>0$, then $P(X\geq a)\leq \frac{E(X)}{a}$
+
+
+\textcolor{blue}{the chebyshev inequality}
+
+\begin{itemize}
+    \item random variable X, with finite mean and variance
+    \item if the variance is small, then X is unlikely to be too far from the mean
+\end{itemize}
+
+\textcolor{blue}{math forumula} $P(|X-\mu|\geq c)\leq \frac{\sigma^2}{c^2}$
+
+
+\textcolor{blue}{the weak law of large numbers(wlln)}
+\begin{itemize}
+    \item $X_1,...,X_n$ i.i.d.; finite mean and variance
+    \item sample mean $M_n=\frac{X_1+...+X_n}{n}$
+    \item $E[M_n]=\mu$
+    \item var($M_n$)=$\frac{\sigma^2}{n}$
+    \item $P(|M_n-\mu|\ge \epsilon)\le var(M_n)/\epsilon^2=\frac{\sigma^2}{n\epsilon^2}$
+\end{itemize}
+
+
+\textcolor{blue}{convergence in prob}
+def: a sequence $Y_n$ converges in prob to a number $a$ if :for any $\epsilon>0$, $\lim_{n\to \infty}P(|Y-a|\ge \epsilon)=0$
+
+
+
+
+
+\subsubsection*{the central limit theorem}
+
+\textcolor{blue}{the central limit theorem}
+\begin{itemize}
+    \item $X_1,...,X_n$ i.i.d., finite mean and variance
+    \item $S_n=X_1+...+X_n,\text{variance:}n\sigma^2$
+    \item $\frac{S_n}{\sqrt{n}}\to \sigma^2$
+    \item let Z be a standard normal r.v. (zero mean,unit variance)
+    \item clt:for every z:$\lim_{n\to \infty}P(Z_n\le z)=P(Z\le z)$
+    \item $P(Z\le z)$ is the standard normal cdf, $\Phi(z)$, available from the normal tables 
+\end{itemize}
+
+\textcolor{red}{usefulness of the clt}
+\begin{itemize}
+    \item universal and easy to apply; only means, variances matter
+    \item fairly accurate computational shortcut
+    \item justification of normal models
+    \item $Z_n=\frac{S_n-n\mu}{\sqrt{n}\sigma}$
+\end{itemize}
+
+
+
+
+
+\subsection*{an introduction to classical statistics}
+
+\textcolor{blue}{estimating a mean}
+
+$X_1,...,X_n$:i.i.d., mean and variance
+
+$\hat{\Theta_n}=$sample mean = $M_n=\frac{X_1+...+X_n}{n}$: estimator(a r.v.)
+
+
+\textcolor{blue}{properties and terminology}
+\begin{itemize}
+    \item $E[\hat{\Theta_n}]=\theta$(unbiased)
+    \item wlln:$\hat{\Theta_n}\to \theta$(consistency)
+    \item mean squared error:$E((\hat{\Theta_n}-\theta)^2)=\frac{\sigma^2}{n}$
+    \item for any estimator,using $E(Z^2)=var(Z)+(E(Z))^2$;$E[(\hat{\Theta_n}-\theta)^2]=var(\hat{\Theta})+(\text{bias})^2$
+    \item $\sqrt{var(\hat{\Theta})}$ is called the standard error
+\end{itemize}
+
+\textcolor{blue}{ci for the estimation of the mean}
+
+$P(\hat{\Theta_n}-\frac{1.96\sigma}{\sqrt{n}}\le \theta \le \hat{\Theta_n}+\frac{1.96\sigma}{\sqrt{n}})\simeq 1-\alpha=0.95$
+
+
+\textcolor{blue}{maximum likelihood estimation}
+
+\begin{itemize}
+    \item pcik $\theta$ that makes data most likely $\hat{\theta_{ml}}=\arg \max_\theta p_X(x;\theta)$-also applies when $x,theta$ are vectors or x is continuous
+    \item compare to bayesian posterior:$p_{\Theta|X}=\frac{p_{X|\theta}p_\Theta}{p_X}$- interpretation is very different
+\end{itemize}
