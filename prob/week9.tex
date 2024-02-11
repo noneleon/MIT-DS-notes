@@ -1,0 +1,172 @@
+\section{week 9 bernoullio and poisson process}
+
+\textcolor{blue}{key concepts}
+\begin{itemize}
+    \item def of bernoullio process
+    \item stochastic processes
+    \item basic properties(memorylessness)
+    \item the time of the kth succes/arrival
+    \item distribution of interarrival times
+    \item merging and spilitting
+    \item poisson approximation
+\end{itemize}
+
+\subsection{the bernoullio process}
+
+
+\textcolor{blue}{the bernoullio process}
+
+\begin{itemize}
+    \item a sequence of independent bernoullio trials, $X_i$
+    \item at each trial,i:
+    \begin{itemize}
+        \item P($X_i$=1)=P(success at the ith trail)=p
+        \item P($X_i$=0)=P(failure at the ith trail)=1-p 
+    \end{itemize}
+    \item key assumptions:
+    \begin{itemize}
+        \item independent
+        \item time-homogeneity
+    \end{itemize}
+    \item model of 
+    \begin{itemize}
+        \item sequence of lottery wins/losses
+        \item arrivals each second to a bank
+        \item arrivals at each time slot to server
+    \end{itemize}
+\end{itemize}
+
+
+
+\textcolor{blue}{stochastic proccess}
+
+\begin{itemize}
+    \item first view:sequence of random variable $X_1,X_2,...$
+    \item $E[X_i]=p,var(X_i)=p(1-p),p_{X_i}(x)=p,X=1,or 1-p,X=0$
+    \item second view - sample space: set of infinite sequence of 0's and 1's
+    \item example for bernoullio process:$P(X_i=1)=0\leq P(X_i=1,...,X_n=1)=p^n$
+\end{itemize}
+
+
+\textcolor{blue}{number of successs/arrival S in n time slots}
+
+\begin{itemize}
+    \item $S=X_1+...+X_n$
+    \item $P(S=k)=(^n_k)p^k(1-p)^{n-k},k=0,...,n$
+    \item $E(S)=np$
+    \item $var(S)=np(1-p)$
+\end{itemize}
+
+\textcolor{blue}{time unitl the first success/arrival}
+
+\begin{itemize}
+    \item $T_1=\min\{i:X_i=1\}$
+    \item $P(T_1=k)=p(0000....1)=(1-p)^kp,k=1,2,...,n$
+    \item $E[T_1]=1/p$
+    \item $var(T_1)=(1-p)/p$
+\end{itemize}
+
+
+\textcolor{blue}{the process of $X_{N+1},X_{N+2},...$ is :}
+\begin{itemize}
+    \item a bernoullio process
+    \item independent of $N,X_1,...,X_N$(as long as N is determined 'causally')
+\end{itemize}
+
+\textcolor{blue}{time of the kth success/arrival}
+\begin{itemize}
+    \item $Y_k$= time of kth arrival
+    \item $T_k$=kth inter-arrival time $=Y_k-Y_{k-1},k\ge 2$
+    \item the process starts fresh after time $T_1$
+    \item $T_2$ is independent of $T_1$;geometric(p),etc
+\end{itemize}
+
+
+$Y_k=T_1+...+T_k$ the $T_i$ are i.i.d., geometric(p),$E[Y_k]=k/p,var(Y_k)=k(1-p)/p^2,p_{Y_k}(t)=(^{t-1}_{k-1})p^k(1-p)^{n-k},t=k,k+1,...$
+
+
+\textcolor{blue}{poisson approximation to binomial}
+
+\begin{itemize}
+    \item interesting regime:large n, small p, moderate $\lambda=np$
+    \item number of arrivals S in n slots:$p_S(k)=\frac{n!}{(n-k)!k!}p^k(1-p)^{n-k},k=0,1,...,n\to \frac{\lambda^k}{k!}e^{-\lambda}$
+\end{itemize}
+
+\subsection{the poisson precess}
+\textcolor{blue}{key concepts}
+\begin{itemize}
+    \item def of the poisson process-application
+    \item distribution of number of arrival
+    \item the time of the kth arrival
+    \item memorylessness
+    \item distribution of interarrival times
+\end{itemize}
+
+
+\textcolor{blue}{def of the poisson process}
+
+numbers of arrivals in disjoint time intervals are independent
+
+$P(k,\tau)$= prob of k arrivals in interval of duration $\tau$
+
+
+small interval probs for very small $\delta$
+
+
+\textcolor{blue}{applications of the poisson process}
+
+\begin{itemize}
+    \item deaths from horse kicks in the prussian army
+    \item particle emissions and radioactive decay
+    \item photon arrivals from a weak source
+    \item financial market shocks
+    \item placement of phone calls,service requests,etc
+\end{itemize}
+
+
+\textcolor{blue}{the poisson pmf for the number of arrivals}
+$N_\tau$:arrivals in $[0,\tau]$ $P(k,\tau)=P(N_\tau=k)=\frac{(\lambda \tau)^ke^{-\lambda \tau}}{k!},k=0,1,...$
+
+$n=\tau/\delta$ intervals/slots of length $\delta$
+
+\textcolor{blue}{mean and variance of the number of arrivals}
+
+$E(N_\tau)=var(N_\tau)=\lambda \tau$
+
+
+\textcolor{red}{erlang distribution:$f_{Y_k}(y)=\frac{\lambda^ky^{k-1}e^{-\lambda y}}{(k-1)!},y>0$}
+
+
+\textcolor{blue}{anlogous to the properties for the bernoullio process}
+\begin{itemize}
+    \item plausible,given the relation between the two processes
+    \item use intuitive reasoning
+    \item can be proved rigorously
+\end{itemize}
+
+
+$Y_k=T_1+...+T_k$ is sum of i.i.d., exponentials $E(Y_k)=k/\lambda,var(Y_k)=k/\lambda ^2$
+
+
+\subsection{more on the poisson process}
+
+\textcolor{blue}{concepts}
+\begin{itemize}
+    \item the sum of independent poisson r.v.s
+    \item merging and spilitting
+    \item random incidence
+\end{itemize}
+
+\textcolor{blue}{the sum of independent poisson random variable}
+
+\begin{itemize}
+    \item poisson process of rate $\lambda=1$
+    \item consecutive intervals of length $\mu$ and $v$
+    \item numbers of arrivals during these intervals: M and N,M+N:poisson($\mu+v$) 
+\end{itemize}
+
+\textcolor{blue}{spilitting of a poisson process}
+
+resulting streams are poisson rate $\lambda q, \lambda(1-q)$
+
+random incidence 'paradox' is not sepcial to the poisson process
